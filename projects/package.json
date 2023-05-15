@@ -1,0 +1,39 @@
+{
+  "name": "microapp-projects",
+  "version": "1.0.0",
+  "description": "projects microservice",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon --exec ts-node ./src/server.ts",
+    "start": "node ./dist/server.js",
+    "serve": "tsc && node ./dist/server.js",
+    "start:docker": "docker run -p 4001:4001 faridmansimli/$npm_package_name",
+    "build": "tsc",
+    "build:docker": "docker build -t faridmansimli/$npm_package_name .",
+    "push:docker": "docker push faridmansimli/$npm_package_name"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/morgan": "^1.9.4",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "eslint": "^8.40.0",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "microservice"
+  ],
+  "author": "Farid Mansimli",
+  "license": "ISC"
+}
