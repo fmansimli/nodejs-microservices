@@ -7,11 +7,20 @@ build:
   local:
     push: false
   artifacts:
-    - image: faridmansimli/microapp-react
-      context: client
+    - image: faridmansimli/microapp-projects
+      context: projects
       sync:
         manual:
-          - src: src/**/*.js
+          - src: src/**/*.ts
+            dest: .
+      docker:
+        dockerfile: Dockerfile
+
+    - image: faridmansimli/microapp-teams
+      context: teams
+      sync:
+        manual:
+          - src: src/**/*.ts
             dest: .
       docker:
         dockerfile: Dockerfile

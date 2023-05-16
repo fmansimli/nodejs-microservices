@@ -9,7 +9,6 @@ COPY . ./
 RUN npm run build
 
 FROM node:alpine
-
 WORKDIR /apps/app
 
 COPY --from=builder /temp-apps/app/dist/ ./dist/
