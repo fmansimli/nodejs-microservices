@@ -1,10 +1,10 @@
-FROM node:alpine as builder 
+FROM node:alpine as builder
 WORKDIR /temp-apps/app
 
 COPY package*.json ./
 RUN npm install
 
-COPY . ./
+COPY ./ ./
 
 RUN npm run build
 
@@ -22,5 +22,5 @@ COPY ./ ./
 RUN npm install
 
 EXPOSE 4002
-CMD ["npm","run","dev"]
+CMD ["npm","run","start"]
 

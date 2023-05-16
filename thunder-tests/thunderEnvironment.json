@@ -6,6 +6,11 @@
     "sortNum": 10000,
     "created": "2023-05-15T20:25:47.342Z",
     "modified": "2023-05-15T20:25:47.342Z",
-    "data": []
+    "data": [
+      {
+        "name": "baseURL",
+        "value": "http://myapp.dev"
+      }
+    ]
   }
 ]
