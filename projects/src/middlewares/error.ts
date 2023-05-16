@@ -10,8 +10,10 @@ export const get404: RequestHandler = (req, res, _next) => {
 
 export const handleError: ErrorRequestHandler = (err, req, res, _next) => {
   try {
+    console.error(err);
+
     res.status(500).json({ httpCode: 500 });
   } catch (error) {
-    _next(error);
+    res.status(500).json({ httpCode: 500 });
   }
 };
