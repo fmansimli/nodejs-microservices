@@ -1,7 +1,7 @@
 {
   "name": "microapp-teams",
   "version": "1.0.0",
-  "description": "event bus ro communicate between services",
+  "description": "teams service",
   "main": "server.js",
   "directories": {
     "test": "test"
@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "nodemon --exec ts-node ./src/server.ts",
     "start": "node ./dist/server.js",
+    "start:pm2": "pm2-runtime start ./dist/server.js",
     "serve": "tsc && node ./dist/server.js",
     "start:docker": "docker run -p 4001:4001 faridmansimli/$npm_package_name",
     "build": "tsc",

@@ -10,7 +10,7 @@ export const getAll: RequestHandler = (req, res, next) => {
 
 export const getById: RequestHandler = (req, res, next) => {
   try {
-    res.status(200).json({ post: { id: req.params.id } });
+    res.status(200).json({ project: { id: req.params.id } });
   } catch (error) {
     next(error);
   }
