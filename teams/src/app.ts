@@ -15,7 +15,7 @@ app.use(helmet());
 app.use(morgan("dev"));
 app.use(cors());
 
-app.use("/api/event-bus", router);
+app.use("/api/teams", router);
 
 app.use(get404);
 app.use(handleError);

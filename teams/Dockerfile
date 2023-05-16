@@ -13,11 +13,15 @@ FROM node:alpine
 WORKDIR /apps/app
 
 COPY --from=builder /temp-apps/app/dist/ ./dist/
-COPY package*.json ./
 
-RUN npm install --omit=dev
+#COPY package*.json ./
+#RUN npm install --omit=dev
 #RUN npm install -g pm2
+#CMD ["npm","start"]
 
-EXPOSE 4000
+COPY ./ ./
+RUN npm install
 
-CMD [ "npm","start" ]
+EXPOSE 4002
+CMD ["npm","run","dev"]
+

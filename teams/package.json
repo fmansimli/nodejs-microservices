@@ -1,5 +1,5 @@
 {
-  "name": "microapp-eventbus",
+  "name": "microapp-teams",
   "version": "1.0.0",
   "description": "event bus ro communicate between services",
   "main": "server.js",
@@ -34,8 +34,7 @@
     "typescript": "^5.0.4"
   },
   "keywords": [
-    "nodejs",
-    "eventbus"
+    "nodejs"
   ],
   "author": "Farid Mansimli",
   "license": "ISC"

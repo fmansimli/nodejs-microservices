@@ -1,37 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: microapp-projects-depl
+  name: microapp-teams-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: microapp-projects
+      app: microapp-teams
   template:
     metadata:
       labels:
-        app: microapp-projects
+        app: microapp-teams
     spec:
       containers:
-        - name: microapp-projects
-          image: faridmansimli/microapp-projects
+        - name: microapp-teams
+          image: faridmansimli/microapp-teams
           resources:
             limits:
               memory: "128Mi"
               cpu: "500m"
           ports:
-            - containerPort: 4001
+            - containerPort: 4002
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: microapp-projects-srv
+  name: microapp-teams-srv
 spec:
   type: ClusterIP
   selector:
-    app: microapp-projects
+    app: microapp-teams
   ports:
-    - name: microapp-projects
+    - name: microapp-teams
       protocol: TCP
-      port: 4001
-      targetPort: 4001
+      port: 4002
+      targetPort: 4002

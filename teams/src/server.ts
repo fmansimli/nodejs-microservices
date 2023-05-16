@@ -3,8 +3,8 @@ import app from "./app";
 
 const httpServer = http.createServer(app);
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4002;
 
 httpServer.listen(PORT, () => {
-  console.log(`*** server listening on http://localhost:${PORT}  (event-bus)`);
+  console.log(`*** server listening on http://localhost:${PORT}  (teams)`);
 });

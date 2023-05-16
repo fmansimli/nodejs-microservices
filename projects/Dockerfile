@@ -4,7 +4,8 @@ WORKDIR /temp-apps/app
 COPY package*.json ./
 RUN npm install
 
-COPY . ./
+COPY ./ ./
+
 RUN npm run build
 
 FROM node:alpine
@@ -12,13 +13,15 @@ WORKDIR /apps/app
 
 COPY --from=builder /temp-apps/app/dist ./dist/
 
-COPY package*.json ./
-RUN npm install --omit=dev
-
+#COPY package*.json ./
+#RUN npm install --omit=dev
 #RUN npm install -g pm2
+#CMD ["npm","start"]
+
+COPY ./ ./
+RUN npm install
 
 EXPOSE 4001
-
-CMD ["npm","start"]
+CMD ["npm","run","dev"]
 
 
