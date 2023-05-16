@@ -11,6 +11,13 @@
         "containerId": "",
         "created": "2023-05-15T20:26:48.402Z",
         "sortNum": 10000
+      },
+      {
+        "_id": "285e211d-417b-4488-9ad8-5b44c5ae4edb",
+        "name": "event-bus",
+        "containerId": "",
+        "created": "2023-05-16T05:33:28.269Z",
+        "sortNum": 20000
       }
     ],
     "settings": {
