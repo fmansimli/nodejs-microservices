@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+    - host: myapp.dev
+      http:
+        paths:
+          - path: /api/teams/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: microapp-teams-srv
+                port:
+                  number: 4002
+
+          - path: /api/projects/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: microapp-projects-srv
+                port:
+                  number: 4001

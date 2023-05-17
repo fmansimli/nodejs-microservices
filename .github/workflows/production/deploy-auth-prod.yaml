@@ -1,0 +1,48 @@
+name: Test and Deploy the Auth microservice
+on:
+  push:
+    branches:
+      - "production"
+      - "prod-*"
+      - "prod/**"
+    paths:
+      - "auth/**"
+
+  workflow_dispatch:
+
+env:
+  TEST_VARIABLE: "test-variable"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DIGITALOCEAN_ACCESS_TOKEN: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+
+      - name: Login to Docker hub
+        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+
+      - name: Build docker image
+        run: cd auth && docker build -t faridmansimli/microapp-auth .
+      
+      - name: Push the image to Docker hub
+        run: cd auth && docker push faridmansimli/microapp-auth
+
+      - name: Install doctl
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: $DIGITALOCEAN_ACCESS_TOKEN
+      
+      - name: Save DigitalOcean kubeconfig
+        run: doctl kubernetes cluster kubeconfig save microapp-cluster
+
+      - name: Restart the auth deployment (auth-depl.yaml)
+        run: kubectl rollout restart deployment auth-depl
+      
+      - name: Finish the process
+        run: echo "microapp-auth deployment successfull!"
