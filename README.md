@@ -28,3 +28,14 @@ paste the token to the terminal
 ```
 >> kubectl config use-context <context_name>
 ```
+
+
+#### secret generation
+
+```
+>> kubectl create secret generic jwt-secret --from-literal=JWT_KEY=whateveryouwant
+```
+
+```
+>> kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY=whateveryouwant
+```
