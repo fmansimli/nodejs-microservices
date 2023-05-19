@@ -54,5 +54,24 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "b58f8d99-c031-4e60-9df1-7f3ba1a8297c",
+    "colId": "dd023e48-c3e3-433a-b623-daca74683733",
+    "containerId": "285e211d-417b-4488-9ad8-5b44c5ae4edb",
+    "name": "create",
+    "url": "http://localhost:4002/api/teams",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-05-19T07:53:49.784Z",
+    "modified": "2023-05-19T08:01:09.061Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\":\"name nameeeeee\",\n  \"desc\":\"desc desc\"\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]

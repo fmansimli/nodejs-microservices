@@ -15,3 +15,11 @@ export const getById: RequestHandler = (req, res, next) => {
     next(error);
   }
 };
+
+export const create: RequestHandler = (req, res, next) => {
+  try {
+    res.status(200).json({ team: req.body });
+  } catch (error) {
+    next(error);
+  }
+};
