@@ -2,8 +2,8 @@ export abstract class CustomError extends Error implements ICustomError {
   abstract httpCode: number;
   abstract serialize(): IErrorData[];
 
-  constructor() {
-    super();
+  constructor(message: string) {
+    super(message);
     Object.setPrototypeOf(this, CustomError.prototype);
   }
 }
