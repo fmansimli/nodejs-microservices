@@ -6,5 +6,8 @@
     "git:push": "git push origin master",
     "git": "npm run git:commit && npm run git:push",
     "dev": "skaffold dev"
+  },
+  "dependencies": {
+    "joi": "^17.9.2"
   }
 }
