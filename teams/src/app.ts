@@ -5,6 +5,9 @@ import morgan from "morgan";
 
 import router from "./routes";
 import { get404, handleError } from "./middlewares/error";
+import { Config } from "./config/config";
+
+Config.init();
 
 const app = express();
 
