@@ -2,6 +2,10 @@ import { PrimaryKey, Entity, Property } from "@mikro-orm/core";
 
 @Entity({ tableName: "teams" })
 export class Team {
+  constructor(team: Partial<Team>) {
+    Object.assign(this, team);
+  }
+
   @PrimaryKey()
   id: number;
 

@@ -9,5 +9,5 @@ export class CreateTeamDto {
   @IsString()
   @MinLength(20)
   @MaxLength(50)
-  desc: string;
+  about: string;
 }
