@@ -13,7 +13,7 @@ const config: Parameters<typeof MikroORM.init>[0] = {
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
   allowGlobalContext: true,
-  debug: process.env.NODE_ENV !== "test" && process.env.NODE_ENV !== "production",
+  debug: process.env.NODE_ENV === "development",
   migrations: {
     tableName: "mikro_orm_migrations",
     pathTs: "./migrations",

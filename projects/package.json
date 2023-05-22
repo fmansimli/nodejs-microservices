@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon ./src/server.ts",
     "start": "node ./dist/server.js",
-    "serve": "tsc && node ./dist/server.js",
+    "serve": "rm -rf ./dist/ && tsc && node ./dist/src/server.js",
     "start:pm2": "pm2-runtime start ./dist/server.js",
     "start:docker": "docker run -p 4001:4001 faridmansimli/$npm_package_name",
     "build": "tsc",

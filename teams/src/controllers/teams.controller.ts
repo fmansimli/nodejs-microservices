@@ -6,7 +6,10 @@ export const getAll: RequestHandler = async (req, res, next) => {
   try {
     const teams = await DI.em.find(Team, {});
 
-    res.status(200).json({ teams });
+    res.status(200).json({
+      teams,
+      meta: { env: process.env.NODE_ENV },
+    });
   } catch (error) {
     next(error);
   }
