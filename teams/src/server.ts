@@ -8,7 +8,7 @@ const httpServer = http.createServer(app);
 
 const PORT = process.env.PORT || 4002;
 
-httpServer.listen(PORT, async () => {
+const bootstrap = async () => {
   try {
     const orm = await MikroORM.init();
     AppDi.init(orm);
@@ -16,10 +16,12 @@ httpServer.listen(PORT, async () => {
     const migrator = orm.getMigrator();
     await migrator.up();
 
-    //
+    httpServer.listen(PORT, () => {
+      console.log(`http://localhost:${PORT}  (teams)`);
+    });
   } catch (error: any) {
     console.error("$$ =>" + error.message);
-  } finally {
-    console.log(`http://localhost:${PORT}  (teams)`);
   }
-});
+};
+
+bootstrap();
