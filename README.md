@@ -14,28 +14,28 @@ paste the token to the terminal
 
 ### get connection info for ournew cluster
 
-``` bash
+```bash
 doctl kubernetes cluster kubeconfig save <cluster_name>
 ```
 
 ### list all contexts
 
-``` bash
+```bash
 kubectl config view
 ```
 
 ### use a different context
 
-``` bash
+```bash
 kubectl config use-context <context_name>
 ```
 
 ### secret generation
 
 ```bash
-kubectl create secret generic jwt-secret --from-literal=JWT_KEY=whateveryouwant
+kubectl create secret generic jwt-secret --from-literal JWT_KEY=whateveryouwant
 ```
 
-``` bash
-kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY=whateveryouwant
+```bash
+kubectl create secret generic stripe-secret --from-literal STRIPE_KEY=whateveryouwant
 ```
